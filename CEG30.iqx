@@ -1,0 +1,909 @@
+﻿
+###chem english 30 trials following BFB 9 condition & chem-engl bfb
+
+*******MAKE SURE ALL 500 MS ARE CHANGED BACK TO 5000 MS********
+
+
+<data>
+/ format = tab
+</data>
+
+
+***************************************TRIALS***************************************
+
+
+<trial wait>
+/ validresponse = ("P") 
+</trial>
+
+<block wait>
+/ bgstim = (wait)
+/ trials = [1 =wait]
+</block>
+
+<text wait>  
+/ numitems = 1
+/ items = ("Please wait for the experimenter")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (50, 15)
+</text>
+
+
+<text stop>  
+/ numitems = 1
+/ items = ("Thank you for participating in the study! Please wait quietly until everyone is finished.")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (50, 15)
+</text>
+
+<trial stop>
+/ validresponse = ("Q") 
+</trial>
+
+
+
+**********************************************categorize**********************************************
+
+
+
+******* white: sc_chem,sc_engl, sd_chem,sd_engl ******
+******nf******
+******filler ambig******
+
+<trial SC_WM>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("k")
+/ frames = [1 = noreplace(eraseword);20=noreplace(WhiteMKeeps_P)]
+/ errormessage = (errorChem,500)
+/ correctmessage = (correctChem, 500)
+/ posttrialpause=2000
+
+</trial>
+
+<trial SD_WM>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("d")
+/ frames =[1= noreplace(eraseword);20=noreplace(WhiteMKeeps_P)]
+
+/ errormessage = (errorEngl, 500)
+/ correctmessage = (correctEngl, 500)
+/ posttrialpause=2000
+
+</trial>
+
+
+<trial SC_WF> 
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("d")
+/ frames = [1 = noreplace(eraseword);20= noreplace(WhiteFKeeps_P)]
+/ errormessage = (errorEngl, 500)
+/ correctmessage = (correctEngl, 500)
+/ posttrialpause=2000
+
+</trial>
+
+<trial SD_WF>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("k")
+/ frames = [1 = noreplace(eraseword);20= noreplace(WhiteFKeeps_P)]
+/ errormessage = (errorChem, 500)
+/ correctmessage = (correctChem, 500)
+/ posttrialpause=2000
+
+</trial>
+
+******Filler**********
+*need 2 different kind so that the message works*
+<trial Filler_Chem>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("d")
+/ frames = [1= noreplace(eraseword);20=noreplace(AmbigMKeeps_P, AmbigFKeeps_P)]
+/ errormessage = (errorChem, 500)
+/ correctmessage = (correctChem, 500)
+/ posttrialpause=25
+
+</trial>
+
+<trial Filler_Engl>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("k")
+/ frames = [1= noreplace(eraseword);20=noreplace(AmbigMKeeps_P, AmbigFKeeps_P)]
+/ errormessage = (errorEngl, 500)
+/ correctmessage = (correctEngl, 500)
+/ posttrialpause=25
+
+</trial>
+
+
+*******NF ********
+********frames needs to be edited*******************************************************************************************
+<trial NF_Engl>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("k")
+/ frames = [1= noreplace(eraseword);20=noreplace(
+
+WhiteFKeeps_P
+)]
+/ errormessage = (NFRecord, 500)
+/ correctmessage = (NFRecord, 500)
+/ posttrialpause=25
+
+</trial>
+
+<trial NF_Chem>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("k")
+/ frames = [1= noreplace(eraseword);20=noreplace(
+
+WhiteMKeeps_P
+)]
+/ errormessage = (NFRecord, 500)
+/ correctmessage = (NFRecord, 500)
+/ posttrialpause=25
+
+</trial>
+
+<trial NF_Neut>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("k")
+/ frames = [1= noreplace(eraseword);20=noreplace(
+
+AmbigMKeeps_P,AmbigFKeeps_P
+)]
+/ errormessage = (NFRecord, 500)
+/ correctmessage = (NFRecord, 500)
+/ posttrialpause=25
+
+</trial>
+
+<trial test>
+
+/ validkeys = ("d", "k")
+/ correctresponse = ("k")
+/ frames = [1= noreplace(eraseword);20=noreplace(
+WhiteMKeeps_P, 
+WhiteFKeeps_P, 
+)]
+/ errormessage = (NFRecord, 500)
+/ correctmessage = (NFRecord, 500)
+
+</trial>
+
+
+
+***********Training blocks********
+<block BothCounterFeed>
+/ trials = [1-2=SD_WM; 3=SD_WF; 4=SC_WF; 5=SC_WM; 6=SC_WF; 7=SD_WF ; 8=SD_WF ;
+ 9=SD_WM ; 10-11=SD_WM ; 12=SC_WM ; 13-14=filler_Chem ; 15=filler_Engl ; 16=SD_WF ; 
+ 17=filler_Engl ; 18=SD_WM ; 19-20=SD_WF]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+<block BothNo>
+/ trials = [1-2=NF_Neut ; 3=NF_Engl ; 4=NF_Engl ; 5=NF_Chem ; 6=NF_Engl ; 
+7=NF_Chem ; 8=NF_Neut ; 
+9=NF_Chem ; 10-11=NF_Chem ; 12=NF_Chem ; 13-14=NF_Engl ; 15=NF_Chem ; 
+16=NF_Engl ; 17=NF_Chem ; 18=NF_Neut ; 19-20=NF_Engl]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+<block BothStereoFeed>
+/ trials = [1-2=SC_WF; 3=SD_WF; 4=SC_WF; 5=SC_WM; 6=SC_WF; 7=SC_WM ; 8=SC_WM ; 
+9=SC_WF ; 10-11=SD_WM ; 12=SC_WM ; 13-14=filler_Chem ; 15=filler_Engl ; 16=SD_WF ; 
+17=filler_Engl ; 18=SC_WF ; 19-20=SC_WM]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+<block EnglFFeed>
+/ trials = [1-2=SC_WF ; 3=filler_Chem ; 4=filler_Engl ; 5=SC_WM ; 6=SD_WM ; 7-8=SD_WF; 
+9=filler_Chem; 10-11=SC_WF ; 12=SC_WM ; 13=SD_WM ; 14=SC_WF ; 15=SC_WF ; 16=filler_Chem ; 
+17=filler_Engl ; 18-20=filler_Chem]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+
+<block EnglNo>
+/ trials = [1-2=NF_Engl ; 3-4=NF_Neut ; 5-6= NF_Chem ; 7-9=NF_Engl ; 
+10-11=NF_Neut; 12-13=NF_Chem ; 14=NF_Neut; 15=NF_Engl ; 16-18=NF_Neut ; 19-20=NF_Engl]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+<block EnglMFeed>
+/ trials = [1-2=SD_WF ; 3=filler_Engl ; 4=filler_Chem ; 5-6=SC_WM ; 7=SD_WF ; 
+8-9=filler_Engl ; 10-11=SD_WF ; 12=SD_WM ; 13=SD_WM ; 14=SD_WF ; 15=filler_Engl ; 
+16=filler_Engl ; 17=filler_Chem ;18=filler_Engl; 19-20=SC_WF]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+<block ChemFFeed>
+/ trials = [1-2=SD_WM ; 3=filler_Chem ; 4=filler_Engl ; 5=SD_WF ; 6=SC_WF ; 7=SD_WM ; 
+8-9=filler_Chem ; 10-11=SD_WM ; 12=SD_WF ; 13=SC_WF ; 14=SD_WM ; 15=SC_WM ; 16=filler_Chem ; 
+17=filler_Engl ; 18=SC_WM; 19-20=filler_Chem]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+<block ChemNo>
+/ trials = [1-2=NF_Chem ; 3-4=NF_Neut ; 5-6=NF_Engl ; 7-9=NF_Chem ; 10-11=NF_Neut; 
+12-13= NF_Engl ; 14=NF_Neut; 15=NF_Chem ; 16-18=NF_Neut ; 19-20=NF_Chem]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+******no feedback****
+<block ChemMFeed>
+/ trials = [1-2=SC_WM ; 3=filler_Engl ; 4=filler_Chem ; 5=filler_Engl ; 6=SD_WF ; 
+7=SC_WM ; 8-9=SD_WM ; 10-11=SC_WM ; 12=filler_Engl ; 13=SD_WF ; 14=SC_WM ; 15=filler_Engl ; 
+16=filler_Engl ; 17=filler_Chem ; 18=filler_Engl; 19-20=SC_WF]
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+</block>
+
+
+***********Testing blocks********
+<block test>
+/ trials = [1-10=noreplacenorepeat(test)]
+
+/ screencolor = (255, 255, 255)
+/ bgstim = (Englishleft, Chemistryright)
+/ preinstructions = (test_page1,categorize_page3)
+</block>
+
+*******Demo blocks*********
+<block likertidentifying>
+/ screencolor = (255, 255, 255)
+/ trials = [1=identifying]
+</block>
+
+<block freeresponse>
+/ screencolor = (255, 255, 255)
+/ trials = [1-2=freeresponse]
+</block>
+
+<block describe>
+/ screencolor = (255, 255, 255)
+/ trials = [1=describe]
+</block>
+
+<block demographics>
+/ screencolor = (255, 255, 255)
+/ trials = [1=demographics]
+</block>
+
+<block stop>
+/ bgstim = (stop)
+/ trials = [1 = stop]
+</block>
+
+
+************expt********************
+*
+<expt BothCounterFeed>
+/ subjects = (1 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=BothCounterFeed; 5=test;6=demographics; 7=stop]
+</expt>
+
+<expt BothNo>
+/ subjects = (2 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=BothNo; 5=test;6=demographics; 7=stop]
+</expt>
+
+<expt BothStereoFeed>
+/ subjects = (3 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=BothStereoFeed; 5=test;6=demographics; 7=stop]
+</expt>
+
+
+<expt EnglFFeed>
+/ subjects = (4 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=EnglFFeed; 5=test;6=demographics; 7=stop]
+</expt>
+
+<expt EnglNo>
+/ subjects = (5 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=EnglNo;5=test;6=demographics; 7=stop]
+</expt>
+
+<expt EnglMFeed>
+/ subjects = (6 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=EnglMFeed; 5=test;6=demographics; 7=stop]
+</expt>
+
+<expt ChemFFeed>
+/ subjects = (7 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=ChemFFeed; 5=test;6=demographics; 7=stop]
+</expt>
+
+<expt ChemNo>
+/ subjects = (8 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=ChemNo; 5=test;6=demographics; 7=stop]
+</expt>
+
+<expt ChemMFeed>
+/ subjects = (9 of 9)
+
+/ blocks = [1=wait;2 =intro; 3=intro2; 4=ChemMFeed; 5=test;6=demographics; 7=stop]
+</expt>
+
+
+
+
+
+<page end>  
+Thank you for participating in the study!
+^^
+</page>
+
+<block end>
+/screencolor = (255, 255, 255)
+/ preinstructions = (end)
+</block>
+
+<block intro>
+/screencolor = (255, 255, 255)
+</block>
+
+<block intro2>
+/screencolor = (255, 255, 255)
+/ preinstructions = (intro2)
+</block>
+
+***shape
+<shape eraseword>
+/ color = (255, 255, 255)
+/ position = (50, 95)
+/ shape = rectangle
+/ size = (700, 50)
+/ erase = false
+</shape>
+
+
+*shape to block rest of facebook profiles during face recognition task
+<shape rectangle_right>
+/ shape = rectangle
+/ color = (255, 255, 255)
+/ position = (65, 58)
+/ size = ( 800,400)
+/ erase = false
+</shape>
+
+<shape rectangle_left>
+/ shape = rectangle
+/ color = (255, 255, 255)
+/ position = (30%, 75%)
+/ size = ( 300,300)
+/ erase = false
+</shape>
+
+
+***************************************PICTURE***************************************
+
+
+****test trials***
+
+
+
+
+<picture test_P>
+/ items = test
+/ select = noreplacenorepeat
+/ size = (800, 1200)
+/ erase = false
+
+</picture>
+
+<item test>
+/ 79="pFa17-WW60-261FB.jpg"
+/ 80="pFa17-WW63-160FB.jpg"
+/ 81="pFa17-WW65-141FB.jpg"
+/ 82="pFa17-WW66-245FB.jpg"
+/ 61="pFA17-WW7-246FB.jpg"
+/ 161="zFa17-WW7-209FBprofile.jpg"
+/ 83="pFa17-WW71-196FB.jpg"
+/ 84="pFa17-WW75-201FB.jpg"
+/ 85="pFa17-WW77-252FB.jpg"
+/ 86="pFa17-WW79-7FB.jpg"
+/ 162="zFa17-WW8-213FBprofile.jpg"
+/ 87="pFa17-WW80-212FB.jpg"
+/ 88="pFa17-WW89-218FB.jpg"
+/ 62="pFa17-WW9-26FB.jpg"
+/ 163="zFa17-WW9-215FBprofile.jpg"
+/ 89="pFa17-WW91-272FB.jpg"
+/ 90="pFa17-WW92-121FB.jpg"
+/ 91="pFa17-WW99-219FB.jpg"
+
+/ 42="pFa17-WM55-96FB.jpg"
+/ 43="pFa17-WM56-102FB.jpg"
+/ 44="pFa17-WM58-298FB.jpg"
+/ 138="zFa17-WM6-133FBprofile.jpg"
+/ 139="zFa17-WM7-136FBprofile.jpg"
+/ 45="pFa17-WM70-108FB.jpg"
+/ 46="pFa17-WM75-63FB.jpg"
+/ 47="pFa17-WM78-113FB copy.jpg"
+/ 48="pFa17-WM79-283FB.jpg"
+/ 140="zFa17-WM8-143FBprofile.jpg"
+/ 49="pFa17-WM82-284FB.jpg"
+/ 50="pFa17-WM84-117FB.jpg"
+/ 51="pFa17-WM86-105FB.jpg"
+/ 52="pFa17-WM87-44FB.jpg"
+/ 27="pFa17-WM9-135FB.jpg"
+/ 141="zFa17-WM9-146FBprofile.jpg"
+/ 53="pFa17-WM95-285FB.jpg"
+/ 54="pFa17-WM97-127FB.jpg"
+
+</item>
+
+
+****************************************************************************************TRAIN****************************************************************************************
+
+
+****White Male***
+<item WhiteMKeeps>
+/ 26="pFa17-WM1-139FB.jpg"
+/ 133="zFa17-WM1-104FBprofile.jpg"
+/ 142="zFa17-WM10-153FBprofile.jpg"
+/ 56="pFa17-WM105-275FB.jpg"
+/ 55="pFa17-WM105-43FB.jpg"
+/ 143="zFa17-WM11-155FBprofile.jpg"
+/ 28="pFa17-WM12-53FB.jpg"
+/ 144="zFa17-WM12-158FBprofile.jpg"
+/ 145="zFa17-WM13-159FBprofile.jpg"
+/ 146="zFa17-WM14-161FBprofile.jpg"
+/ 29="pFa17-WM15-106FB.jpg"
+/ 147="zFa17-WM15-178FBprofile.jpg"
+/ 148="zFa17-WM16-179FBprofile.jpg"
+/ 149="zFa17-WM17-180FBprofile.jpg"
+/ 150="zFa17-WM18-181FBprofile.jpg"
+/ 30="pFa17-WM19-295FB.jpg"
+/ 151="zFa17-WM19-183FBprofile.jpg"
+/ 134="zFa17-WM2-120FBprofile.jpg"
+/ 31="pFa17-WM20-52FB.jpg"
+/ 152="zFa17-WM20-186FBprofile.jpg"
+/ 32="pFa17-WM21-55FB.jpg"
+/ 153="zFa17-WM21-187FBprofile.jpg"
+/ 154="zFa17-WM22-191FBprofile.jpg"
+/ 33="pFa17-WM23-263FB.jpg"
+/ 34="pFa17-WM24-56FB.jpg"
+/ 135="zFa17-WM3-124FBprofile.jpg"
+/ 94="pFa27-WM30-68FB.jpg"
+/ 35="pFa17-WM35-75FB.psd"
+/ 36="pFa17-WM36-73FB.jpg"
+/ 37="pFa17-WM37-75FB.jpg"
+/ 136="zFA17-WM4-126FBprofile.jpg"
+/ 38="pFa17-WM40-85FB.jpg"
+/ 39="pFa17-WM42-89FB.jpg"
+/ 40="pFa17-WM48-112FB.jpg"
+/ 137="zFa17-WM5-131FBprofile.jpg"
+/ 41="pFa17-WM53-91FBpsd.jpg"
+
+
+</item>
+
+
+
+<picture WhiteMKeeps_P>
+/ items = WhiteMKeeps
+/ select = noreplacenorepeat
+/ size = (800, 1200)
+/ erase = false
+
+</picture>
+
+
+*****White female
+<item WhiteFKeeps>
+/ 155="zFa17-WW1-192FBprofile.jpg"
+/ 164="zFa17-WW10-220FBprofile.jpg"
+/ 92="pFa17-WW101-130FB.jpg"
+/ 93="pFa17-WW103-92FB.jpg"
+/ 165="zFa17-WW11-232FBprofile.jpg"
+/ 166="zFa17-WW12-236FBprofile.jpg"
+/ 167="zFa17-WW13-237FBprofile.jpg"
+/ 168="zFa17-WW14-238FBprofile.jpg"
+/ 169="zFa17-WW15-250FBprofile.jpg"
+/ 170="zFa17-WW16-251FBprofile.jpg"
+/ 171="zFa17-WW17-254FBprofile.jpg"
+/ 57="pFa17-WW2-78FB.jpg"
+/ 156="zFa17-WW2-193FBprofile.jpg"
+/ 63="pFa17-WW21-289FB.jpg"
+/ 64="pFa17-WW27-241FB.jpg"
+/ 65="pFa17-WW29-235FB.jpg"
+/ 157="zFa17-WW3-194FBprofile.jpg"
+/ 66="pFa17-WW30-257FB.jpg"
+/ 67="pFa17-WW34-147FB.jpg"
+/ 68="pFa17-WW35-151FB.jpg"
+/ 69="pFa17-WW36-152FB.jpg"
+/ 70="pFa17-WW37-38FB.jpg"
+/ 58="pFa17-WW4-163FB.jpg"
+/ 158="zFa17-WW4-202FBprofile.jpg"
+/ 71="pFa17-WW42-164FB.jpg"
+/ 72="pFa17-WW44-224FB.jpg"
+/ 73="pFa17-WW45-168FB.jpg"
+/ 74="pFa17-WW48-175FB.jpg"
+/ 59="pFa17-WW5-269FB.jpg"
+/ 159="zFa17-WW5-203FBprofile.jpg"
+/ 75="pFa17-WW50-140FB.jpg"
+/ 76="pFa17-WW51-113FB.jpg"
+/ 77="pFa17-WW52-184FB.jpg"
+/ 78="pFa17-WW53-270FB.jpg"
+/ 60="pFa17-WW6-189FB.jpg"
+/ 160="zFa17-WW6-206FBprofile.jpg"
+
+
+</item>
+
+
+
+
+
+<picture WhiteFKeeps_P>
+/ items = WhiteFKeeps
+/ select = noreplacenorepeat
+/ size = (800, 1200)
+/ erase = false
+
+</picture>
+
+
+*****Ambiguous/mixed males***
+<item AmbigMKeeps>
+/ 17="pFa17-HM4-216FB.jpg"
+/ 18="pFa17-HM6-211FB.jpg"
+/ 125="zFa17-MM1-67FBprofile.jpg"
+/ 23="pFa17-MM15-25FB.jpg"
+/ 100="Sp18-MM2-111FBprofile.jpg"
+/ 126="zFa17-MM2-71FBprofile.jpg"
+/ 127="zFa17-MM3-77FBprofile.jpg"
+/ 128="zFa17-MM4-80FBprofile-2.jpg"
+/ 129="zFa17-MM5-86FBprofile.jpg"
+/ 22="pFa17-MM8-256FB.jpg"
+
+</item>
+
+
+
+
+<picture AmbigMKeeps_P>
+/ items = AmbigMKeeps
+/ select = noreplacenorepeat
+/ size = (800, 1200)
+/ erase = false
+
+</picture>
+
+***Ambiguous females****
+<item AmbigFKeeps>
+/ 19="pFa17-HW1-200FB.jpg"
+/ 20="pFa17-HW5-198FB.jpg"
+/ 21="pFa17-HW6-205FB.jpg"
+/ 130="zFa17-MW1-94FBprofile.jpg"
+/ 24="pFa17-MW10-242FB.jpg"
+/ 102="Sp18-MW10-132FBprofile.jpg"
+/ 25="pFa17-MW15-267FB.jpg"
+/ 131="zFa17-MW2-98FBprofile.jpg"
+/ 132="zFa17-MW3-101FBprofile.jpg"
+/ 101="Sp18-MW7-123FBprofile.jpg"
+
+</item>
+
+
+
+
+<picture AmbigFKeeps_P>
+/ items = AmbigFKeeps
+/ select = noreplacenorepeat
+/ size = (800, 1200)
+/ erase = false
+
+</picture>
+
+
+***************************************TEXT***************************************
+
+<text Recognizeright>  
+/ numitems = 1
+/ items = ("I recognize this face (K)")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (80, 10)
+</text>
+
+<text NoRecognizeleft>  
+/ numitems = 1
+/ items = ("I do not recognize this face (D)")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (20, 10)
+</text>
+
+<text Chemistryright>  
+/ numitems = 1
+/ items = ("Hit 'K' for Chemistry")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (80, 10)
+</text>
+
+<text Englishleft>  
+/ numitems = 1
+/ items = ("Hit 'D' for English")
+/ font = ("Times New Roman", -24, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ position = (10, 10)
+</text>
+
+
+<text errorChem>  
+/ numitems = 1
+/ items = ("      ERROR - This profile belongs to a Chemistry Major     ")
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ color = (255, 0, 0)
+/ position = (50, 95)
+/ erase = false
+</text>
+
+
+
+<text errorEngl>  
+/ numitems = 1
+/ items = ("      ERROR - This profile belongs to an Enligsh Major     ")
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ color = (255, 0, 0)
+/ position = (50, 95)
+/ erase = false
+</text>
+
+<text correctChem>  
+/ numitems = 1
+/ items = ("      CORRECT - This profile belongs to a Chemistry Major     ")
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ color = (0, 255, 0)
+/ position = (50, 95)
+/ erase = false
+</text>
+
+<text correctEngl>  
+/ numitems = 1
+/ items = ("      CORRECT - This profile belongs to an English major     ")
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ color = (0, 255, 0)
+/ position = (50, 95)
+/ erase = false
+</text>
+
+<text NFRecord>  
+/ numitems = 1
+/ items = ("      Response Recorded     ")
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+/ color = (0, 0, 0)
+/ position = (50, 95)
+/ erase = false
+</text>
+
+
+<instruct>  
+/ nextkey = ("k")
+/ prevkey = ("d")
+/ font = ("Times New Roman", -20, 400, 0, 34)
+</instruct>
+
+***************************************INSTRUCTIONS***************************************
+
+<page intro>
+^^^^^^^
+		   INTERPERSONAL PERCEPTIONS ONLINE
+</page>
+
+<page intro2>
+UNIVERSITY OF WISCONSIN-MADISON^^
+Research Participant Information and Consent Form^
+Title of the Study: Stimulus Collection and Pretesting^
+Point of Contact: William Cox (email: wtcox@wisc.edu)^
+Principal Investigator: William Cox (email: wtcox@wisc.edu)^^
+DESCRIPTION OF THE RESEARCH^
+The tasks that you are doing in this experiment involve sharing your perception of face pictures. We are pretesting these pictures 
+for use in a future study. Answer based on your immediate impression, and do not think about your answers too much.  We are interested
+ in the impressions these pictures make so that we can use them in future perception studies.  We are not looking at individual people's responses; 
+ we're looking at the features of the faces themselves. This research will be conducted online. You have been asked to participate because you are a student in 
+ Introductory Psychology (Psych 202) and have the option of participating in research for extra credit towards your grade in that course. ^
+WHAT WILL MY PARTICIPATION INVOLVE?^
+You will be asked to complete a brief computer program in which you will share your impressions of people based on their pictures. 
+Your participation will last approximately 30 minutes and will consist of just this 1 session.
+ARE THERE ANY RISKS TO ME?^
+We don’t anticipate any risks to you from participation in this study.^
+ARE THERE ANY BENEFITS TO ME?^
+There are no direct benefits to you from participation in this study.^
+COMPENSATION^
+You will receive 1 extra credit point in your Psych 202 class for participating in this study.^
+HOW WILL MY CONFIDENTIALITY BE PROTECTED?^
+While there will probably be publications as a result of this study, your name will not be used.^
+Only group characteristics about the stimuli will be published.^
+WHOM SHOULD I CONTACT IF I HAVE QUESTIONS?^
+You may ask any questions about the research at any time. If you have questions about the research, you should contact the researcher William Cox at wtcox@wisc.edu.
+If you have questions about your rights as a research subject you should contact the Social & Behavioral Science IRB at (608) 263-2320.^
+Your participation is completely voluntary. If you decide not to participate or to withdraw from the study it will have no effect on your grade in this class. ^
+Pressing the [K] key indicates that you have read this consent form, had an opportunity to ask any questions about your participation in this research and voluntarily
+ consent to participate. You can receive a copy of this form for your records upon request. ^
+Press the [K] key to consent to participate
+</page>
+
+<page recognize_page1>
+The study involves interpersonal perception on social networking sites.Because of this, we will first make sure that you do not know the people in 
+the profiles we show you.^^
+Press the ‘K' key if you do not recognize the person in the photo.^^
+Press the ‘D' key if you do recognize the person in the photo.^^</page>
+
+<page categorize_page1>  
+The task that you will be doing in this experiment involves interpersonal perception on social networking sites.^^
+Social networking sites like Facebook have become the new frontier of human social interaction.  We are studying how people perceive and understand each other through these new social environments.^^
+This study is interested in the workings of social networking and its influence on personal identification. Today, we are looking at how people are able to perceive a person's academic major from Facebook profiles.^^
+We collected profiles of English and chemistry majors from Facebook. On each trial, you will see a Facebook profile and tell us whether the person is an English or a chemistry major.^^  
+</page>
+
+<page categorize_page2>
+We want to pretest how people perceive these people's profiles before using them in another study.  You're helping us pick which Facebook profiles we will use in our study.^^
+You will be shown a person's Facebook profile and you will report whether the person strikes you as an English or a chemistry major.^^
+You should respond quickly, giving your gut responses for each profile.^^
+Consider the person's profile "likes" or interests when you make the judgments.  Please don't censor yourself; we need your real, unfiltered reactions to help understand implicit interpersonal perception online.  Don't try to infuse your personal values; respond with what you believe most people would say.^^
+</page>
+
+<page categorize_page3> 
+REMEMBER: The two categories that you are to distinguish are:^^
+CHEMISTRY MAJOR vs. ENGLISH MAJOR.^^
+Press the ‘K' key if the stimulus is a CHEMISTRY MAJOR.^^
+Press the ‘D' key if the stimulus is an ENGLISH MAJOR.^^
+</page>
+
+<page test_page1> 
+You will be asked to rate 50 more profiles.^^
+</page>
+
+***************************************QUESTIONS***************************************
+
+<textbox major>
+/ caption = "What is/are your intended or declared academic majors? If you are undecided, you may indicate that you are undecided."
+/ textboxsize = (20,5)
+/ required = true
+</textbox>
+
+<textbox race>
+/ caption = "What is your race/ethnicity?"
+/ textboxsize = (20,5)
+/ required = true
+</textbox>
+
+<textbox gender>
+/ caption = "What is your gender?"
+/ textboxsize = (20,5)
+/ required = true
+</textbox>
+
+<textbox sexorientation>
+/ caption = "What is your sexual orientation?"
+/ textboxsize = (20,5)
+/ required = true
+</textbox>
+
+<textbox timeinUS>
+/ caption = "How many years have you lived in the U.S.?"
+/ textboxsize = (20,5)
+/ mask = integer
+/ required = true
+</textbox>
+
+<surveypage demographics>
+/ questions = [1=major; 2=race; 3=gender; 4=sexorientation; 5=timeinUS]
+/ showbackbutton = false
+/ showpagenumbers = False
+/ showquestionnumbers = False
+</surveypage>
+
+<text identifying>
+/ numitems = 1
+/ items = identifying
+/ size = (1000, 200)
+/ select = sequence
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+<item identifying>
+/1 = "In the task you just completed, how good do you think you were at identifying who was an English or chemistry major?"
+</item>
+
+<text freeresponse>
+/ numitems = 2
+/ items = freeresponse
+/ size = (1000, 200)
+/ select = sequence
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+<item freeresponse>
+/1 = "Do you find a person's Facebook 'likes' useful for identifying their major?  Why or why not?"
+</item>
+
+<text describe>
+/ numitems = 1
+/ items = describe
+/ size = (1000, 200)
+/ position = (50, 25)
+/ font = ("Times New Roman", -28, 700, 0, 49)
+/ txbgcolor = (255, 255, 255)
+</text>
+
+<item describe>
+/6 = "In simple terms, describe the basic purpose of the study."
+</item>
+
+<likert identifying>
+/ numpoints=7
+/ stimulusframes = [1=identifying]
+/ anchors= [1="Very bad"; 7="Very Good" ]
+/ position= (50, 50)
+/ mouse=true
+</likert>
+
+<openended freeresponse>
+/ stimulusframes = [1=freeresponse]
+/ position = (50, 75)
+/ linelength = 100
+/ numlines = 20
+/ charlimit = 2000
+/ buttonlabel = "Continue"
+/ required = true
+</openended>
+
+<openended describe>
+/ stimulusframes = [1=describe]
+/ position = (50, 75)
+/ linelength = 100
+/ numlines = 20
+/ charlimit = 2000
+/ buttonlabel = "Continue"
+/ required = true
+</openended>
+
+
+
