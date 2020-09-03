@@ -59,7 +59,7 @@
 / frames = [1 = noreplace(eraseword);20=noreplace(WhiteMKeeps_P)]
 / errormessage = (errorChem,500)
 / correctmessage = (correctChem, 500)
-/ posttrialpause=2000
+/ posttrialpause=5000
 
 </trial>
 
@@ -71,7 +71,7 @@
 
 / errormessage = (errorEngl, 500)
 / correctmessage = (correctEngl, 500)
-/ posttrialpause=2000
+/ posttrialpause=5000
 
 </trial>
 
@@ -83,7 +83,7 @@
 / frames = [1 = noreplace(eraseword);20= noreplace(WhiteFKeeps_P)]
 / errormessage = (errorEngl, 500)
 / correctmessage = (correctEngl, 500)
-/ posttrialpause=2000
+/ posttrialpause=5000
 
 </trial>
 
@@ -94,7 +94,7 @@
 / frames = [1 = noreplace(eraseword);20= noreplace(WhiteFKeeps_P)]
 / errormessage = (errorChem, 500)
 / correctmessage = (correctChem, 500)
-/ posttrialpause=2000
+/ posttrialpause=5000
 
 </trial>
 
@@ -107,7 +107,7 @@
 / frames = [1= noreplace(eraseword);20=noreplace(AmbigMKeeps_P, AmbigFKeeps_P)]
 / errormessage = (errorChem, 500)
 / correctmessage = (correctChem, 500)
-/ posttrialpause=25
+/ posttrialpause=5000
 
 </trial>
 
@@ -118,7 +118,7 @@
 / frames = [1= noreplace(eraseword);20=noreplace(AmbigMKeeps_P, AmbigFKeeps_P)]
 / errormessage = (errorEngl, 500)
 / correctmessage = (correctEngl, 500)
-/ posttrialpause=25
+/ posttrialpause=5000
 
 </trial>
 
@@ -129,13 +129,13 @@
 
 / validkeys = ("d", "k")
 / correctresponse = ("k")
-/ frames = [1= noreplace(eraseword);20=noreplace(
+/ frames = [1= noreplace(eraseword);20=noreplacenorepeat(
 
 WhiteFKeeps_P
 )]
 / errormessage = (NFRecord, 500)
 / correctmessage = (NFRecord, 500)
-/ posttrialpause=25
+/ posttrialpause=5000
 
 </trial>
 
@@ -149,7 +149,7 @@ WhiteMKeeps_P
 )]
 / errormessage = (NFRecord, 500)
 / correctmessage = (NFRecord, 500)
-/ posttrialpause=25
+/ posttrialpause=5000
 
 </trial>
 
@@ -163,7 +163,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 )]
 / errormessage = (NFRecord, 500)
 / correctmessage = (NFRecord, 500)
-/ posttrialpause=25
+/ posttrialpause=5000
 
 </trial>
 
@@ -171,9 +171,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 
 / validkeys = ("d", "k")
 / correctresponse = ("k")
-/ frames = [1= noreplace(eraseword);20=noreplace(
-WhiteMKeeps_P, 
-WhiteFKeeps_P, 
+/ frames = [1= noreplace(eraseword);20=noreplace(test_P
 )]
 / errormessage = (NFRecord, 500)
 / correctmessage = (NFRecord, 500)
@@ -306,56 +304,56 @@ WhiteFKeeps_P,
 <expt BothCounterFeed>
 / subjects = (1 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=BothCounterFeed; 5=test;6=demographics; 7=stop]
+/ blocks = [1 =intro; 2=intro2; 3=BothCounterFeed; 4=test;5=demographics]
 </expt>
 
 <expt BothNo>
 / subjects = (2 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=BothNo; 5=test;6=demographics; 7=stop]
+/ blocks = [1=intro; 2=intro2; 3=BothNo; 4=test;5=demographics]
 </expt>
 
 <expt BothStereoFeed>
 / subjects = (3 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=BothStereoFeed; 5=test;6=demographics; 7=stop]
+/ blocks = [1=intro; 2=intro2; 3=BothStereoFeed; 4=test;5=demographics]
 </expt>
 
 
 <expt EnglFFeed>
 / subjects = (4 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=EnglFFeed; 5=test;6=demographics; 7=stop]
+/ blocks = [1=intro; 2=intro2; 3=EnglFFeed; 4=test;5=demographics]
 </expt>
 
 <expt EnglNo>
 / subjects = (5 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=EnglNo;5=test;6=demographics; 7=stop]
+/ blocks = [1=intro; 2=intro2; 3=EnglNo;4=test;5=demographics]
 </expt>
 
 <expt EnglMFeed>
 / subjects = (6 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=EnglMFeed; 5=test;6=demographics; 7=stop]
+/ blocks = [1=intro; 2=intro2; 3=EnglMFeed; 4=test;5=demographics]
 </expt>
 
 <expt ChemFFeed>
 / subjects = (7 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=ChemFFeed; 5=test;6=demographics; 7=stop]
+/ blocks = [1=intro; 2=intro2; 3=ChemFFeed; 4=test;5=demographics]
 </expt>
 
 <expt ChemNo>
 / subjects = (8 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=ChemNo; 5=test;6=demographics; 7=stop]
+/ blocks = [1=intro; 2=intro2; 3=ChemNo; 4=test;5=demographics]
 </expt>
 
 <expt ChemMFeed>
 / subjects = (9 of 9)
 
-/ blocks = [1=wait;2 =intro; 3=intro2; 4=ChemMFeed; 5=test;6=demographics; 7=stop]
+/ blocks = [1 =intro; 2=intro2; 3=ChemMFeed; 4=test;5=demographics]
 </expt>
 
 
@@ -431,38 +429,12 @@ Thank you for participating in the study!
 / 81="pFa17-WW65-141FB.jpg"
 / 82="pFa17-WW66-245FB.jpg"
 / 61="pFA17-WW7-246FB.jpg"
-/ 161="zFa17-WW7-209FBprofile.jpg"
-/ 83="pFa17-WW71-196FB.jpg"
-/ 84="pFa17-WW75-201FB.jpg"
-/ 85="pFa17-WW77-252FB.jpg"
-/ 86="pFa17-WW79-7FB.jpg"
-/ 162="zFa17-WW8-213FBprofile.jpg"
-/ 87="pFa17-WW80-212FB.jpg"
-/ 88="pFa17-WW89-218FB.jpg"
-/ 62="pFa17-WW9-26FB.jpg"
-/ 163="zFa17-WW9-215FBprofile.jpg"
-/ 89="pFa17-WW91-272FB.jpg"
-/ 90="pFa17-WW92-121FB.jpg"
-/ 91="pFa17-WW99-219FB.jpg"
 
 / 42="pFa17-WM55-96FB.jpg"
 / 43="pFa17-WM56-102FB.jpg"
 / 44="pFa17-WM58-298FB.jpg"
 / 138="zFa17-WM6-133FBprofile.jpg"
 / 139="zFa17-WM7-136FBprofile.jpg"
-/ 45="pFa17-WM70-108FB.jpg"
-/ 46="pFa17-WM75-63FB.jpg"
-/ 47="pFa17-WM78-113FB copy.jpg"
-/ 48="pFa17-WM79-283FB.jpg"
-/ 140="zFa17-WM8-143FBprofile.jpg"
-/ 49="pFa17-WM82-284FB.jpg"
-/ 50="pFa17-WM84-117FB.jpg"
-/ 51="pFa17-WM86-105FB.jpg"
-/ 52="pFa17-WM87-44FB.jpg"
-/ 27="pFa17-WM9-135FB.jpg"
-/ 141="zFa17-WM9-146FBprofile.jpg"
-/ 53="pFa17-WM95-285FB.jpg"
-/ 54="pFa17-WM97-127FB.jpg"
 
 </item>
 
@@ -480,34 +452,6 @@ Thank you for participating in the study!
 / 143="zFa17-WM11-155FBprofile.jpg"
 / 28="pFa17-WM12-53FB.jpg"
 / 144="zFa17-WM12-158FBprofile.jpg"
-/ 145="zFa17-WM13-159FBprofile.jpg"
-/ 146="zFa17-WM14-161FBprofile.jpg"
-/ 29="pFa17-WM15-106FB.jpg"
-/ 147="zFa17-WM15-178FBprofile.jpg"
-/ 148="zFa17-WM16-179FBprofile.jpg"
-/ 149="zFa17-WM17-180FBprofile.jpg"
-/ 150="zFa17-WM18-181FBprofile.jpg"
-/ 30="pFa17-WM19-295FB.jpg"
-/ 151="zFa17-WM19-183FBprofile.jpg"
-/ 134="zFa17-WM2-120FBprofile.jpg"
-/ 31="pFa17-WM20-52FB.jpg"
-/ 152="zFa17-WM20-186FBprofile.jpg"
-/ 32="pFa17-WM21-55FB.jpg"
-/ 153="zFa17-WM21-187FBprofile.jpg"
-/ 154="zFa17-WM22-191FBprofile.jpg"
-/ 33="pFa17-WM23-263FB.jpg"
-/ 34="pFa17-WM24-56FB.jpg"
-/ 135="zFa17-WM3-124FBprofile.jpg"
-/ 94="pFa27-WM30-68FB.jpg"
-/ 35="pFa17-WM35-75FB.psd"
-/ 36="pFa17-WM36-73FB.jpg"
-/ 37="pFa17-WM37-75FB.jpg"
-/ 136="zFA17-WM4-126FBprofile.jpg"
-/ 38="pFa17-WM40-85FB.jpg"
-/ 39="pFa17-WM42-89FB.jpg"
-/ 40="pFa17-WM48-112FB.jpg"
-/ 137="zFa17-WM5-131FBprofile.jpg"
-/ 41="pFa17-WM53-91FBpsd.jpg"
 
 
 </item>
@@ -533,34 +477,6 @@ Thank you for participating in the study!
 / 166="zFa17-WW12-236FBprofile.jpg"
 / 167="zFa17-WW13-237FBprofile.jpg"
 / 168="zFa17-WW14-238FBprofile.jpg"
-/ 169="zFa17-WW15-250FBprofile.jpg"
-/ 170="zFa17-WW16-251FBprofile.jpg"
-/ 171="zFa17-WW17-254FBprofile.jpg"
-/ 57="pFa17-WW2-78FB.jpg"
-/ 156="zFa17-WW2-193FBprofile.jpg"
-/ 63="pFa17-WW21-289FB.jpg"
-/ 64="pFa17-WW27-241FB.jpg"
-/ 65="pFa17-WW29-235FB.jpg"
-/ 157="zFa17-WW3-194FBprofile.jpg"
-/ 66="pFa17-WW30-257FB.jpg"
-/ 67="pFa17-WW34-147FB.jpg"
-/ 68="pFa17-WW35-151FB.jpg"
-/ 69="pFa17-WW36-152FB.jpg"
-/ 70="pFa17-WW37-38FB.jpg"
-/ 58="pFa17-WW4-163FB.jpg"
-/ 158="zFa17-WW4-202FBprofile.jpg"
-/ 71="pFa17-WW42-164FB.jpg"
-/ 72="pFa17-WW44-224FB.jpg"
-/ 73="pFa17-WW45-168FB.jpg"
-/ 74="pFa17-WW48-175FB.jpg"
-/ 59="pFa17-WW5-269FB.jpg"
-/ 159="zFa17-WW5-203FBprofile.jpg"
-/ 75="pFa17-WW50-140FB.jpg"
-/ 76="pFa17-WW51-113FB.jpg"
-/ 77="pFa17-WW52-184FB.jpg"
-/ 78="pFa17-WW53-270FB.jpg"
-/ 60="pFa17-WW6-189FB.jpg"
-/ 160="zFa17-WW6-206FBprofile.jpg"
 
 
 </item>
@@ -586,10 +502,6 @@ Thank you for participating in the study!
 / 23="pFa17-MM15-25FB.jpg"
 / 100="Sp18-MM2-111FBprofile.jpg"
 / 126="zFa17-MM2-71FBprofile.jpg"
-/ 127="zFa17-MM3-77FBprofile.jpg"
-/ 128="zFa17-MM4-80FBprofile-2.jpg"
-/ 129="zFa17-MM5-86FBprofile.jpg"
-/ 22="pFa17-MM8-256FB.jpg"
 
 </item>
 
@@ -612,10 +524,6 @@ Thank you for participating in the study!
 / 130="zFa17-MW1-94FBprofile.jpg"
 / 24="pFa17-MW10-242FB.jpg"
 / 102="Sp18-MW10-132FBprofile.jpg"
-/ 25="pFa17-MW15-267FB.jpg"
-/ 131="zFa17-MW2-98FBprofile.jpg"
-/ 132="zFa17-MW3-101FBprofile.jpg"
-/ 101="Sp18-MW7-123FBprofile.jpg"
 
 </item>
 
