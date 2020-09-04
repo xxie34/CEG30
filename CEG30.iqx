@@ -187,7 +187,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
  17=filler_Engl ; 18=SD_WM ; 19-20=SD_WF]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 
 <block BothNo>
@@ -197,7 +197,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 16=NF_Engl ; 17=NF_Chem ; 18=NF_Neut ; 19-20=NF_Engl]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 
 <block BothStereoFeed>
@@ -206,7 +206,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 17=filler_Engl ; 18=SC_WF ; 19-20=SC_WM]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 
 <block EnglFFeed>
@@ -224,7 +224,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 10-11=NF_Neut; 12-13=NF_Chem ; 14=NF_Neut; 15=NF_Engl ; 16-18=NF_Neut ; 19-20=NF_Engl]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 
 <block EnglMFeed>
@@ -233,7 +233,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 16=filler_Engl ; 17=filler_Chem ;18=filler_Engl; 19-20=SC_WF]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 
 <block ChemFFeed>
@@ -242,7 +242,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 17=filler_Engl ; 18=SC_WM; 19-20=filler_Chem]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 
 <block ChemNo>
@@ -250,7 +250,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 12-13= NF_Engl ; 14=NF_Neut; 15=NF_Chem ; 16-18=NF_Neut ; 19-20=NF_Chem]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 ******no feedback****
 <block ChemMFeed>
@@ -259,7 +259,7 @@ AmbigMKeeps_P,AmbigFKeeps_P
 16=filler_Engl ; 17=filler_Chem ; 18=filler_Engl; 19-20=SC_WF]
 / screencolor = (255, 255, 255)
 / bgstim = (Englishleft, Chemistryright)
-/ preinstructions = (categorize_page1, categorize_page2, categorize_page3)
+/ preinstructions = ( categorize_page1, categorize_page2, categorize_page3)
 </block>
 
 
@@ -298,63 +298,75 @@ AmbigMKeeps_P,AmbigFKeeps_P
 / trials = [1 = stop]
 </block>
 
+<block consentform>
+/ trials = [1= consentform]
+/ screencolor = (255, 255, 255)
+</block>
+
+
+<trial consentform>
+/ validkeys = ("k")
+/ frames = [1= consentform]
+
+</trial>
 
 ************expt********************
 *
 <expt BothCounterFeed>
 / subjects = (1 of 9)
 
-/ blocks = [1 =intro; 2=intro2; 3=BothCounterFeed; 4=test;5=demographics]
+/ blocks = [1 =intro; 2=consentform; 3=BothCounterFeed; 4=test;5=demographics]
 </expt>
 
 <expt BothNo>
 / subjects = (2 of 9)
 
-/ blocks = [1=intro; 2=intro2; 3=BothNo; 4=test;5=demographics]
+/ blocks = [1=intro; 2=consentform; 3=BothNo; 4=test;5=demographics]
 </expt>
 
 <expt BothStereoFeed>
 / subjects = (3 of 9)
 
-/ blocks = [1=intro; 2=intro2; 3=BothStereoFeed; 4=test;5=demographics]
+/ blocks = [1=intro; 2=consentform; 3=BothStereoFeed; 4=test;5=demographics]
 </expt>
 
 
 <expt EnglFFeed>
 / subjects = (4 of 9)
 
-/ blocks = [1=intro; 2=intro2; 3=EnglFFeed; 4=test;5=demographics]
+/ blocks = [1=intro; 2=consentform; 3=EnglFFeed; 4=test;5=demographics]
 </expt>
 
 <expt EnglNo>
 / subjects = (5 of 9)
 
-/ blocks = [1=intro; 2=intro2; 3=EnglNo;4=test;5=demographics]
+/ blocks = [1=intro; 2=consentform; 3=EnglNo;4=test;5=demographics]
 </expt>
 
 <expt EnglMFeed>
 / subjects = (6 of 9)
 
-/ blocks = [1=intro; 2=intro2; 3=EnglMFeed; 4=test;5=demographics]
+/ blocks = [1=intro; 2=consentform; 3=EnglMFeed; 4=test;5=demographics]
 </expt>
 
 <expt ChemFFeed>
 / subjects = (7 of 9)
 
-/ blocks = [1=intro; 2=intro2; 3=ChemFFeed; 4=test;5=demographics]
+/ blocks = [1=intro; 2=consentform; 3=ChemFFeed; 4=test;5=demographics]
 </expt>
 
 <expt ChemNo>
 / subjects = (8 of 9)
 
-/ blocks = [1=intro; 2=intro2; 3=ChemNo; 4=test;5=demographics]
+/ blocks = [1=intro; 2=consentform; 3=ChemNo; 4=test;5=demographics]
 </expt>
 
 <expt ChemMFeed>
 / subjects = (9 of 9)
 
-/ blocks = [1 =intro; 2=intro2; 3=ChemMFeed; 4=test;5=demographics]
+/ blocks = [1 =intro; 2=consentform; 3=ChemMFeed; 4=test;5=demographics]
 </expt>
+
 
 
 
@@ -377,6 +389,11 @@ Thank you for participating in the study!
 <block intro2>
 /screencolor = (255, 255, 255)
 / preinstructions = (intro2)
+</block>
+
+block  intro3>
+/screencolor= (255,255,255)
+/ preinstructions = (intro3)
 </block>
 
 ***shape
@@ -539,6 +556,17 @@ Thank you for participating in the study!
 </picture>
 
 
+<picture consentform>
+/ items = consentform
+/ size = (85%, 100%)
+/ erase = false
+</picture>
+
+<item consentform>
+/1= "CEG30consentform.jpeg"
+</item>
+
+
 ***************************************TEXT***************************************
 
 <text Recognizeright>  
@@ -588,7 +616,7 @@ Thank you for participating in the study!
 
 <text errorEngl>  
 / numitems = 1
-/ items = ("      ERROR - This profile belongs to an Enligsh Major     ")
+/ items = ("      ERROR - This profile belongs to an English Major     ")
 / font = ("Times New Roman", -28, 700, 0, 49)
 / txbgcolor = (255, 255, 255)
 / color = (255, 0, 0)
@@ -641,36 +669,28 @@ Thank you for participating in the study!
 </page>
 
 <page intro2>
-UNIVERSITY OF WISCONSIN-MADISON^^
+UNIVERSITY OF WISCONSIN-MADISON^
 Research Participant Information and Consent Form^
-Title of the Study: Stimulus Collection and Pretesting^
+Title of the Study: Interpersonal Perceptions^
 Point of Contact: William Cox (email: wtcox@wisc.edu)^
-Principal Investigator: William Cox (email: wtcox@wisc.edu)^^
-DESCRIPTION OF THE RESEARCH^
-The tasks that you are doing in this experiment involve sharing your perception of face pictures. We are pretesting these pictures 
-for use in a future study. Answer based on your immediate impression, and do not think about your answers too much.  We are interested
- in the impressions these pictures make so that we can use them in future perception studies.  We are not looking at individual people's responses; 
- we're looking at the features of the faces themselves. This research will be conducted online. You have been asked to participate because you are a student in 
- Introductory Psychology (Psych 202) and have the option of participating in research for extra credit towards your grade in that course. ^
-WHAT WILL MY PARTICIPATION INVOLVE?^
-You will be asked to complete a brief computer program in which you will share your impressions of people based on their pictures. 
-Your participation will last approximately 30 minutes and will consist of just this 1 session.
-ARE THERE ANY RISKS TO ME?^
-We don’t anticipate any risks to you from participation in this study.^
-ARE THERE ANY BENEFITS TO ME?^
-There are no direct benefits to you from participation in this study.^
-COMPENSATION^
-You will receive 1 extra credit point in your Psych 202 class for participating in this study.^
-HOW WILL MY CONFIDENTIALITY BE PROTECTED?^
-While there will probably be publications as a result of this study, your name will not be used.^
-Only group characteristics about the stimuli will be published.^
-WHOM SHOULD I CONTACT IF I HAVE QUESTIONS?^
-You may ask any questions about the research at any time. If you have questions about the research, you should contact the researcher William Cox at wtcox@wisc.edu.
+Principal Investigator: William Cox (email: wtcox@wisc.edu)^
+DESCRIPTION OF THE RESEARCH: You are invited to participate in a research study about interpersonal perception. Specifically, we are interested in how, through interpersonal perception, people in everyday life use minimal information about others to make various inferences about them. The purpose of the research is to study people’s ability to determine undergraduate students’ majors. ^
+WHAT WILL MY PARTICIPATION INVOLVE? You will be asked to complete a brief computer program in which you will identify what an undergraduate student’s major is. Your participation will last approximately 15 minutes and will consist of just this 1 session.^
+ARE THERE ANY RISKS TO ME? There is always a minimal risk of break of confidentiality.^
+ARE THERE ANY BENEFITS TO ME? There are no direct benefits to you from participation in this study.^
+COMPENSATION: You will be compensated with $1 towards your Mturk account after the completion of the study.^
+HOW WILL MY CONFIDENTIALITY BE PROTECTED? While there will probably be publications as a result of this study, your name will not be used. Only group characteristics will be published. Identifiers will be removed from the identifiable private information and that, after such removal, the information could be used for future research studies or distributed to another investigator for future research studies without additional informed consent from the subject or the legally authorized representative. After publication, the de-identified data will be shared with other researchers through an online data library.^
+WHOM SHOULD I CONTACT IF I HAVE QUESTIONS? You may ask any questions about the research at any time. If you have questions about the research after you complete the study, you should contact the researcher William Cox at William.cox@wisc.edu.
 If you have questions about your rights as a research subject you should contact the Social & Behavioral Science IRB at (608) 263-2320.^
 Your participation is completely voluntary. If you decide not to participate or to withdraw from the study it will have no effect on your grade in this class. ^
 Pressing the [K] key indicates that you have read this consent form, had an opportunity to ask any questions about your participation in this research and voluntarily
  consent to participate. You can receive a copy of this form for your records upon request. ^
 Press the [K] key to consent to participate
+</page>
+
+<page catgorize_page0>
+Your participation is completely voluntary. If you decide not to participate or to withdraw from the study, you will not receive compensation via Mturk and your information will be discarded. ^^
+CLICKING ACCEPT: If you wish to have a copy of the consent, please print this form now before continuing. By clicking “K”, you indicate that you voluntarily agree to participate in this study and that you understand the information in this consent form. By clicking "D" you will return back to the conset form. Click below to consent to participate.  ^
 </page>
 
 <page recognize_page1>
