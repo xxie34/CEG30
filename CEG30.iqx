@@ -103,7 +103,7 @@
 <trial Filler_Chem>
 
 / validkeys = ("d", "k")
-/ correctresponse = ("d")
+/ correctresponse = ("k")
 / frames = [1= noreplace(eraseword);20=noreplace(AmbigMKeeps_P, AmbigFKeeps_P)]
 / errormessage = (errorChem, 500)
 / correctmessage = (correctChem, 500)
@@ -114,7 +114,8 @@
 <trial Filler_Engl>
 
 / validkeys = ("d", "k")
-/ correctresponse = ("k")
+
+/ correctresponse = ("d")
 / frames = [1= noreplace(eraseword);20=noreplace(AmbigMKeeps_P, AmbigFKeeps_P)]
 / errormessage = (errorEngl, 500)
 / correctmessage = (correctEngl, 500)
@@ -128,7 +129,7 @@
 <trial NF_Engl>
 
 / validkeys = ("d", "k")
-/ correctresponse = ("k")
+/ correctresponse = ("d")
 / frames = [1= noreplace(eraseword);20=noreplacenorepeat(
 
 WhiteFKeeps_P
